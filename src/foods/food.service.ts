@@ -11,12 +11,26 @@ export class FoodService {
   ) {}
 
   create(createFoodDto: CreateFoodDto): Promise<Food> {
+    //Crea un objeto
     const food = new Food();
     food.name = createFoodDto.name;
     food.descripcion = createFoodDto.descripcion;
     food.category = createFoodDto.category;
     food.image = createFoodDto.image;
     food.price = createFoodDto.price;
+    //Metodo que crea una tabla con TypeORM
     return this.foodRespository.save(food);
+  }
+
+  async findAll(): Promise<Food[]> {
+    return this.foodRespository.find();
+  }
+
+  async findOne(id: number): Promise<Food> {
+    return this.foodRespository.findOneBy({ id: id });
+  }
+
+  async delete(id: string): Promise<void> {
+    await this.foodRespository.delete(id);
   }
 }
