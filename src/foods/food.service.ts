@@ -14,7 +14,7 @@ export class FoodService {
     //Crea un objeto
     const food = new Food();
     food.name = createFoodDto.name;
-    food.descripcion = createFoodDto.descripcion;
+    food.description = createFoodDto.description;
     food.category = createFoodDto.category;
     food.image = createFoodDto.image;
     food.price = createFoodDto.price;
