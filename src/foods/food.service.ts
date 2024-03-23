@@ -13,6 +13,9 @@ export class FoodService {
   create(createFoodDto: CreateFoodDto): Promise<Food> {
     //Crea un objeto
     const food = new Food();
+    if (createFoodDto.id) {
+      food.id = createFoodDto.id;
+    }
     food.name = createFoodDto.name;
     food.description = createFoodDto.description;
     food.category = createFoodDto.category;
